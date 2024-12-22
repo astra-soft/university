@@ -1,4 +1,5 @@
 {
 	"port": 5002,
-	"environment": "development"
+	"environment": "development",
+	"salt": "top-secret"
 }
