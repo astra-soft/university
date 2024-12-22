@@ -9,6 +9,7 @@
  * Base Components:
  * - RequestContext: HTTP request context management  // TODO: Future implementation
  * - Module: Base class for all modules               // TODO: Future implementation
+ * - Module: Base class for all modules
  * - Logger: Centralized logging system
  *
  * Application Modules:
@@ -17,6 +18,7 @@
  *
  * Architecture Components:
  * - Router: Request routing and handling // TODO: Future implementation
+ * - Router: Request routing and handling
  * - Service: Business logic layer        // TODO: Future implementation
  * - Controller: Request processing       // TODO: Future implementation
  * - Mapper: Data mapping layer           // TODO: Future implementation
@@ -24,5 +26,9 @@
  */
 
 // Base components
+export * from './RequestContext';
 export * from './Logger';
 export * from './Module';
+
+// Architecture components
+export * from './Router';

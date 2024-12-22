@@ -24,3 +24,4 @@ export * from './logger';
 export * from './colors.interface';
 export * from './environment.interface';
 export * from './language.interface';
+export * from './router.interface';

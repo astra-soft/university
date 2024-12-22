@@ -1,7 +1,8 @@
 // src/core/Module.ts
 
 /**
- * Base component abstract class providing logging functionality
+ * Base component
+ * Abstract class providing logging functionality
  * @module Core/Module
  * @description
  * Provides base functionality for all application modules including:
