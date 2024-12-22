@@ -25,3 +25,4 @@
 
 // Base components
 export * from './Logger';
+export * from './Module';
