@@ -9,6 +9,7 @@
  * login functionalities.
  */
 
+export * from './BaseUser.interface';
 export * from './Login.interface';
 export * from './Role.interface';
 export * from './Status.interface';
