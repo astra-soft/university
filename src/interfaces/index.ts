@@ -20,6 +20,9 @@
 // folders
 export * from './http';
 export * from './logger';
+export * from './Http';
+export * from './Logger';
+export * from './BaseUser';
 // files
 export * from './colors.interface';
 export * from './environment.interface';
