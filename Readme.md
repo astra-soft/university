@@ -2,8 +2,6 @@
 
 ## Description
 
-University Management System - это приложение, разработанное на основе Koa.js, которое управляет данными студентов и преподавателей. Система включает в себя функциональность для аутентификации, управления пользователями и обработки ошибок.
-
 The **University Management System** is an application built on Koa.js designed to manage data for students and professors. The system includes functionality for authentication, user management, and robust error handling.
 
 ## Project Structure
