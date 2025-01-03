@@ -13,13 +13,28 @@ import { Context, Next } from 'koa';
 // class-transformer
 import { plainToInstance } from 'class-transformer';
 // class-validator
-import { validate } from 'class-validator';
+import {
+	validate,
+	ValidationError as ClassValidationError
+} from 'class-validator';
 
 // ! own
 // errors
 import { EOrigin, ValidationError } from '@errors';
 // utils
 import { ValueCheckerUtils } from '@utils';
+
+function formatValidationErrors(errors: ClassValidationError[]): Array<{
+	property: string;
+	constraints: Record<string, string> | null;
+	children: ReturnType<typeof formatValidationErrors> | null;
+}> {
+	return errors.map(error => ({
+		property: error.property,
+		constraints: error.constraints || null,
+		children: error.children ? formatValidationErrors(error.children) : null
+	}));
+}
 
 async function validateData(dto: any, data: any) {
 	if (!data || ValueCheckerUtils.isEmpty(data)) {
@@ -36,16 +51,21 @@ async function validateData(dto: any, data: any) {
 	const instance = plainToInstance(dto, data);
 
 	// Валидация
-	const errors = await validate(instance as object);
+	const errors = await validate(instance, {
+		whitelist: true,
+		forbidNonWhitelisted: true
+	});
 	if (errors.length > 0) {
 		throw new ValidationError({
 			origin: EOrigin.Middleware,
 			message: 'Validation failed',
 			details: {
-				errors: errors.map(err => ({
-					property: err.property,
-					constraints: err.constraints
-				}))
+				errors: formatValidationErrors(errors)
+
+				// errors: errors.map(err => ({
+				// 	property: err.property,
+				// 	constraints: err.constraints
+				// }))
 			}
 		});
 	}

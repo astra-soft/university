@@ -105,9 +105,9 @@ class PrivateDto {
 
 	/** Date of birth */
 	@IsDate()
-	@IsOptional()
+	@IsNotEmpty()
 	@Type(() => Date)
-	dateOfBirth?: Date;
+	dateOfBirth!: Date;
 
 	/** Gender */
 	@IsString()

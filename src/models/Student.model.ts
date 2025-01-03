@@ -90,9 +90,9 @@ const studentSchema = new Schema<IStudent>({
 	/** University credentials */
 	credentials: {
 		/** University login (usually student/employee ID) */
-		login: { type: String, required: true },
+		login: { type: String, unique: true, required: true },
 		/** University email */
-		email: { type: String, required: true },
+		email: { type: String, unique: true, required: true },
 		/** Hashed password */
 		password: { type: String, required: true, select: false }
 	},
