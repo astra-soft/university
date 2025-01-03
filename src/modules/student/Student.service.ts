@@ -178,12 +178,8 @@ export class StudentService extends BaseService {
 				requestId: ctx.state.requestId
 			});
 
-			console.log(181);
-
 			// hashed pass before save
 			const hashedPassword = CryptoUtils.hashString(dto.credentials.password);
-
-			console.log(184);
 
 			return await this.userRepository.createOne({
 				ctx,

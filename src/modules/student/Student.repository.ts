@@ -188,8 +188,6 @@ export class StudentRepository extends BaseRepository<IStudent> {
 				options: { method: 'Create', isFilterEmpty: true, isAll: false }
 			});
 
-			console.log(191);
-
 			return this.create({ data });
 		} catch (error: unknown) {
 			if (error instanceof mongoose.Error.ValidationError) {
